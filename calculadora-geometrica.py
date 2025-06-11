@@ -32,8 +32,9 @@ def distancia_dois_pontos(coordenadas_x,coordenadas_y):
     print(f"A distância entre dois pontos na sua reta é de {calculo_distancia}\n")
 
 def ponto_medio(coordenadas_x,coordenadas_y):
-    calculo_ponto_medio = ((coordenadas_x[0]+coordenadas_x[1]/2)+(coordenadas_y[0]+coordenadas_y[1]/2))
-    print(f"O ponto médio da reta é = {calculo_ponto_medio}\n")
+    ponto_medio_x = (coordenadas_x[0]+coordenadas_x[1])/2
+    ponto_medio_y = (coordenadas_y[0]+coordenadas_y[1])/2
+    print(f"O ponto médio do eixo 'x' da reta é = {ponto_medio_x} e do eixo 'y' é {ponto_medio_y}\n")
 
 def pedir_3_valores(eixo):
      while True:
