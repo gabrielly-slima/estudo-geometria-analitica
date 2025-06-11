@@ -1,4 +1,3 @@
-# Funcionalidades básicas:Distância entre dois pontos, Ponto médio entre dois pontos, Verificar se três pontos estão alinhados (colineares), Encontrar a equação da reta que passa por dois pontos, Verificar se duas retas são paralelas ou perpendiculares
 import math
 import numpy as np
 
@@ -61,23 +60,39 @@ def pontos_colineares(coordenadas_x,coordenadas_y):
     else:
         print("Os pontos não são colineares")
 
+def inclinacao_reta(coordenadas_x,coordenadas_y):
+    inclinacao = coordenadas_y[1]-coordenadas_y[0]/coordenadas_x[1]-coordenadas_x[0]
+    if coordenadas_x[0] == coordenadas_x[1]:
+        print("Inclinação indefinida (divisão por zero = reta vertical)")
+    else:
+        print(f"A inclinação da reta é de {inclinacao}")
+
 def main():
     while True:
-        entrada = input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a EQUAÇÃO GERAL DA RETA\n5. Verificar SE AS RETAS SÃO PARALELAS OU PERPENDICULARES\n")
+        entrada = input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a INCLINAÇÃO DA RETA\n5. Calcular a EQUAÇÃO GERAL DA RETA\n5. Verificar SE AS RETAS SÃO PARALELAS OU PERPENDICULARES\n0. Para ENCERRAR")
         if entrada =="1":
             coordenadas_x = pedir_valores("X")
             coordenadas_y = pedir_valores("Y")
+            mostrar_valores(coordenadas_x,coordenadas_y)
             distancia_dois_pontos(coordenadas_x,coordenadas_y)
         elif entrada == "2":
             coordenadas_x = pedir_valores("X")
             coordenadas_y = pedir_valores("Y")
+            mostrar_valores(coordenadas_x,coordenadas_y)
             ponto_medio(coordenadas_x,coordenadas_y)
         elif entrada == "3":
             coordenadas_x = pedir_3_valores("X")
             coordenadas_y = pedir_3_valores("Y")
+            mostrar_valores(coordenadas_x,coordenadas_y)
             pontos_colineares(coordenadas_x,coordenadas_y)
         elif entrada == "4":
-            
+            coordenadas_x = pedir_valores("X")
+            coordenadas_y = pedir_valores("Y")
+            mostrar_valores(coordenadas_x,coordenadas_y)
+            inclinacao_reta(coordenadas_x,coordenadas_y)
+        elif entrada == "0":
+            print("Encerrando...")
+            break
         else:
             print("Digite corretamente o que deseja fazer de acordo com o menu")
             continue
