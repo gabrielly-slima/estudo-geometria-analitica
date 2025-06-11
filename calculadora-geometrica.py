@@ -61,7 +61,6 @@ def pontos_colineares(coordenadas_x,coordenadas_y):
     else:
         print("Os pontos não são colineares")
 
-    
 def main():
     while True:
         entrada = input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a EQUAÇÃO GERAL DA RETA\n5. Verificar SE AS RETAS SÃO PARALELAS OU PERPENDICULARES\n")
@@ -74,9 +73,11 @@ def main():
             coordenadas_y = pedir_valores("Y")
             ponto_medio(coordenadas_x,coordenadas_y)
         elif entrada == "3":
-            coordenadas_x= pedir_3_valores("X")
-            coordenadas_y= pedir_3_valores("Y")
+            coordenadas_x = pedir_3_valores("X")
+            coordenadas_y = pedir_3_valores("Y")
             pontos_colineares(coordenadas_x,coordenadas_y)
+        elif entrada == "4":
+            
         else:
             print("Digite corretamente o que deseja fazer de acordo com o menu")
             continue
