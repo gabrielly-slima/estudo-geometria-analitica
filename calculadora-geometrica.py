@@ -1,21 +1,6 @@
 import math
 import numpy as np
 
-def pedir_valores(eixo):
-    while True:
-        valores = input(f"Digite duas coordenadas do eixo {eixo} separando-as por espaços\n").split()
-        if len(valores) > 2:
-            print("Você digitou coordenadas a mais, digite apenas DUAS")
-            continue
-        elif len(valores) > 1:
-            try:
-                converter_coordenadas = [float(num) for num in valores]
-                return converter_coordenadas
-            except ValueError:
-                print(f"As coordenadas de {eixo} devem ser números válidos")
-        else:
-            print("Digite mais uma coordenada")
-
 def mostrar_valores(coordenadas_x,coordenadas_y):
     '''
     Exibe as coordenadas inseridas pelo usuário.
@@ -35,11 +20,11 @@ def ponto_medio(coordenadas_x,coordenadas_y):
     ponto_medio_y = (coordenadas_y[0]+coordenadas_y[1])/2
     print(f"O ponto médio do eixo 'x' da reta é = {ponto_medio_x} e do eixo 'y' é {ponto_medio_y}\n")
 
-def pedir_3_valores(eixo):
+def pedir_n_valores(eixo,quantidade):
      while True:
-        valores = input(f"Digite três coordenadas do eixo {eixo} separando-as por espaços\n").split()
-        if len(valores) > 3:
-            print("Você digitou coordenadas a mais, digite apenas TRÊS")
+        valores = input(f"Digite {quantidade} coordenadas do eixo {eixo} separando-as por espaços\n").split()
+        if len(valores) != quantidade:
+            print(f"Você digitou {len(valores)} coordenada(s)! Digite exatamente {quantidade}")
             continue
         elif len(valores) > 1:
             try:
@@ -47,8 +32,6 @@ def pedir_3_valores(eixo):
                 return converter_coordenadas
             except ValueError:
                 print(f"As coordenadas de {eixo} devem ser números válidos")
-        else:
-            print("Digite mais duas coordenadas")
 
 def pontos_colineares(coordenadas_x,coordenadas_y):
     matriz = np.array([[coordenadas_x[0],coordenadas_y[0],1],
@@ -69,25 +52,25 @@ def inclinacao_reta(coordenadas_x,coordenadas_y):
         print(f"A inclinação da reta é de ({coordenadas_y[1]} - {coordenadas_y[0]}) / ({coordenadas_x[1]} - {coordenadas_x[0]}) = {inclinacao}")
 
 def calcular_distancia_dois_pontos():
-    coordenadas_x = pedir_valores("X")
-    coordenadas_y = pedir_valores("Y")
+    coordenadas_x = pedir_n_valores("X",2)
+    coordenadas_y = pedir_n_valores("Y",2)
     mostrar_valores(coordenadas_x,coordenadas_y)
     distancia_dois_pontos(coordenadas_x,coordenadas_y)
 
 def calcular_ponto_medio():
-    coordenadas_x = pedir_valores("X")
-    coordenadas_y = pedir_valores("Y")
+    coordenadas_x = pedir_n_valores("X",2)
+    coordenadas_y = pedir_n_valores("Y",2)
     mostrar_valores(coordenadas_x,coordenadas_y)
     ponto_medio(coordenadas_x,coordenadas_y)
 
 def calcular_pontos_colineares():
-    coordenadas_x = pedir_3_valores("X")
-    coordenadas_y = pedir_3_valores("Y")
+    coordenadas_x = pedir_n_valores("X",3)
+    coordenadas_y = pedir_n_valores("Y",3)
     pontos_colineares(coordenadas_x,coordenadas_y)
 
 def calcular_inclinacao_reta():
-    coordenadas_x = pedir_valores("X")
-    coordenadas_y = pedir_valores("Y")
+    coordenadas_x = pedir_n_valores("X",2)
+    coordenadas_y = pedir_valores("Y",2)
     mostrar_valores(coordenadas_x,coordenadas_y)
     inclinacao_reta(coordenadas_x,coordenadas_y)
 
