@@ -24,7 +24,7 @@ def mostrar_valores(coordenadas_x,coordenadas_y):
     coordenadas_x (list[float]): Coordenadas do eixo X.
     coordenadas_y (list[float]): Coordenadas do eixo Y.
     '''
-    print(f"Sua reta será composta das seguintes coordenadas: X(a,b) = {coordenadas_x[0]},{coordenadas_x[1]} Y(a,b) = {coordenadas_y[0]},{coordenadas_y[1]}")
+    print(f"Sua reta será composta pelos pontos: A = ({coordenadas_x[0]}, {coordenadas_y[0]}), B = ({coordenadas_x[1]}, {coordenadas_y[1]})")
 
 def distancia_dois_pontos(coordenadas_x,coordenadas_y):
     calculo_distancia = math.sqrt(((coordenadas_x[1])-(coordenadas_x[0]))**2 + ((coordenadas_y[1])-(coordenadas_y[0]))**2)
@@ -61,15 +61,16 @@ def pontos_colineares(coordenadas_x,coordenadas_y):
         print("Os pontos não são colineares")
 
 def inclinacao_reta(coordenadas_x,coordenadas_y):
-    inclinacao = coordenadas_y[1]-coordenadas_y[0]/coordenadas_x[1]-coordenadas_x[0]
+    inclinacao = (coordenadas_y[1]-coordenadas_y[0])/(coordenadas_x[1]-coordenadas_x[0])
     if coordenadas_x[0] == coordenadas_x[1]:
         print("Inclinação indefinida (divisão por zero = reta vertical)")
     else:
-        print(f"A inclinação da reta é de {inclinacao}")
+        print(f"A inclinação da reta (coeficiente angular) é dada por (y2 - y1) / (x2 - x1) = {inclinacao}")
+        print(f"A inclinação da reta é de ({coordenadas_y[1]} - {coordenadas_y[0]}) / ({coordenadas_x[1]} - {coordenadas_x[0]}) = {inclinacao}")
 
 def main():
     while True:
-        entrada = input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a INCLINAÇÃO DA RETA\n5. Calcular a EQUAÇÃO GERAL DA RETA\n5. Verificar SE AS RETAS SÃO PARALELAS OU PERPENDICULARES\n0. Para ENCERRAR")
+        entrada = input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a INCLINAÇÃO DA RETA\n0. Para ENCERRAR\n")
         if entrada =="1":
             coordenadas_x = pedir_valores("X")
             coordenadas_y = pedir_valores("Y")
@@ -83,7 +84,6 @@ def main():
         elif entrada == "3":
             coordenadas_x = pedir_3_valores("X")
             coordenadas_y = pedir_3_valores("Y")
-            mostrar_valores(coordenadas_x,coordenadas_y)
             pontos_colineares(coordenadas_x,coordenadas_y)
         elif entrada == "4":
             coordenadas_x = pedir_valores("X")
@@ -94,7 +94,7 @@ def main():
             print("Encerrando...")
             break
         else:
-            print("Digite corretamente o que deseja fazer de acordo com o menu")
+            print("Digite corretamente o que deseja fazer de acordo com o menu\n")
             continue
 
 main()
