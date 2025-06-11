@@ -61,35 +61,47 @@ def pontos_colineares(coordenadas_x,coordenadas_y):
         print("Os pontos não são colineares")
 
 def inclinacao_reta(coordenadas_x,coordenadas_y):
-    inclinacao = (coordenadas_y[1]-coordenadas_y[0])/(coordenadas_x[1]-coordenadas_x[0])
     if coordenadas_x[0] == coordenadas_x[1]:
         print("Inclinação indefinida (divisão por zero = reta vertical)")
     else:
+        inclinacao = (coordenadas_y[1]-coordenadas_y[0])/(coordenadas_x[1]-coordenadas_x[0])
         print(f"A inclinação da reta (coeficiente angular) é dada por (y2 - y1) / (x2 - x1) = {inclinacao}")
         print(f"A inclinação da reta é de ({coordenadas_y[1]} - {coordenadas_y[0]}) / ({coordenadas_x[1]} - {coordenadas_x[0]}) = {inclinacao}")
+
+def calcular_distancia_dois_pontos():
+    coordenadas_x = pedir_valores("X")
+    coordenadas_y = pedir_valores("Y")
+    mostrar_valores(coordenadas_x,coordenadas_y)
+    distancia_dois_pontos(coordenadas_x,coordenadas_y)
+
+def calcular_ponto_medio():
+    coordenadas_x = pedir_valores("X")
+    coordenadas_y = pedir_valores("Y")
+    mostrar_valores(coordenadas_x,coordenadas_y)
+    ponto_medio(coordenadas_x,coordenadas_y)
+
+def calcular_pontos_colineares():
+    coordenadas_x = pedir_3_valores("X")
+    coordenadas_y = pedir_3_valores("Y")
+    pontos_colineares(coordenadas_x,coordenadas_y)
+
+def calcular_inclinacao_reta():
+    coordenadas_x = pedir_valores("X")
+    coordenadas_y = pedir_valores("Y")
+    mostrar_valores(coordenadas_x,coordenadas_y)
+    inclinacao_reta(coordenadas_x,coordenadas_y)
 
 def main():
     while True:
         entrada = input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a INCLINAÇÃO DA RETA\n0. Para ENCERRAR\n")
         if entrada =="1":
-            coordenadas_x = pedir_valores("X")
-            coordenadas_y = pedir_valores("Y")
-            mostrar_valores(coordenadas_x,coordenadas_y)
-            distancia_dois_pontos(coordenadas_x,coordenadas_y)
+            calcular_distancia_dois_pontos()
         elif entrada == "2":
-            coordenadas_x = pedir_valores("X")
-            coordenadas_y = pedir_valores("Y")
-            mostrar_valores(coordenadas_x,coordenadas_y)
-            ponto_medio(coordenadas_x,coordenadas_y)
+            calcular_ponto_medio()
         elif entrada == "3":
-            coordenadas_x = pedir_3_valores("X")
-            coordenadas_y = pedir_3_valores("Y")
-            pontos_colineares(coordenadas_x,coordenadas_y)
+            calcular_pontos_colineares()
         elif entrada == "4":
-            coordenadas_x = pedir_valores("X")
-            coordenadas_y = pedir_valores("Y")
-            mostrar_valores(coordenadas_x,coordenadas_y)
-            inclinacao_reta(coordenadas_x,coordenadas_y)
+            calcular_inclinacao_reta()
         elif entrada == "0":
             print("Encerrando...")
             break
