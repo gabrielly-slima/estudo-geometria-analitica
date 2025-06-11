@@ -70,7 +70,7 @@ def calcular_pontos_colineares():
 
 def calcular_inclinacao_reta():
     coordenadas_x = pedir_n_valores("X",2)
-    coordenadas_y = pedir_valores("Y",2)
+    coordenadas_y = pedir_n_valores("Y",2)
     mostrar_valores(coordenadas_x,coordenadas_y)
     inclinacao_reta(coordenadas_x,coordenadas_y)
 
