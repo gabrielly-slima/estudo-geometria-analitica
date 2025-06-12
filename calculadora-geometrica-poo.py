@@ -16,10 +16,12 @@ class Reta:
         print(f"A distância entre dois pontos na sua reta é de {calculo_distancia}\n")
     
     def ponto_medio(self):
-        ponto_medio_x = ({self.x1}+{self.x2})/2
-        ponto_medio_y = ({self.y1})+{self.y2}/2
+        ponto_medio_x = ((self.x1)+(self.x2))/2
+        ponto_medio_y = ((self.y1)+(self.y2))/2
         print(f"O ponto médio do eixo 'x' da reta é {ponto_medio_x} e do eixo 'y' é {ponto_medio_y}")
 
+    def pontos_colineares(self):
+        
 def main():
     while True:
         entrada = input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a INCLINAÇÃO DA RETA\n0. Para ENCERRAR\n")
