@@ -31,21 +31,23 @@ class Reta:
             print("Os pontos não são colineares")
     
     def inclinacao_reta(self):
-        if self.x1 == self.x2:
+        if (self.x1) == (self.x2):
             print("Inclinação indefinida (divisão por zero = reta vertical)")
         else:
             inclinacao = ((self.y2)-(self.y1))/((self.x2)-(self.x1))
-            print(f"A inclinação da reta (coeficiente angular) é dada por (y2 - y1) / (x2 - x1) = {inclinacao}")
-            print(f"A inclinação da reta é de ({self.y2}-{self.y1}/{self.x2}-{self.x1}) = {inclinacao}")
+            print(f"A inclinação da reta (coeficiente angular) é dada por (y2 - y1) / (x2 - x1) = {inclinacao}\n")
+        
 
 def entrada_2_valores():
     while True:
             x1 = float(input("Digite o x do ponto A\n"))
             y1 = float(input("Digite o y do ponto A\n"))
-            x2 = float(input("/Digite o x do ponto B\n"))
+            x2 = float(input("Digite o x do ponto B\n"))
             y2 = float(input("Digite o y do ponto B\n"))
+            x3 = None
+            y3 = None
 
-            criacao_reta = Reta(x1,y1,x2,y2)
+            criacao_reta = Reta(x1,y1,x2,y2,x3,y3)
             criacao_reta.mostrar_valores()
             return criacao_reta
         
@@ -81,7 +83,7 @@ def main():
                 reta_criada = entrada_3_valores()
                 reta_criada.pontos_colineares()
             elif entrada == 4:
-                reta_criada = entrada_2_valores
+                reta_criada = entrada_2_valores()
                 reta_criada.inclinacao_reta()
             elif entrada == 0:
                 print("Encerrando...")
