@@ -39,52 +39,62 @@ class Reta:
             print(f"A inclinação da reta é de ({self.y2}-{self.y1}/{self.x2}-{self.x1}) = {inclinacao}")
 
 def entrada_2_valores():
-    try:
-        x1 = float(input("Digite o x do ponto A"))
-        y1 = float(input("Digite o y do ponto A"))
-        x2 = float(input("Digite o x do ponto B"))
-        y2 = float(input("Digite o y do ponto B"))
-    
-        criacao_reta = Reta(x1,y1,x2,y2)
-        criacao_reta.mostrar_valores()
-        return criacao_reta
-    except ValueError:
-        print("Caractere inválido! Digite um número")
+    while True:
+        try:
+            x1 = float(input("Digite o x do ponto A\n"))
+            y1 = float(input("Digite o y do ponto A\n"))
+            x2 = float(input("Digite o x do ponto B\n"))
+            y2 = float(input("Digite o y do ponto B\n"))
+
+            criacao_reta = Reta(x1,y1,x2,y2)
+            criacao_reta.mostrar_valores()
+            return criacao_reta
+        except ValueError:
+            print("Erro! Digite corretamente o que foi pedido.")
+            continue
 
 def entrada_3_valores():
-    try:
-        x1 = float(input("Digite o x do ponto A"))
-        y1 = float(input("Digite o y do ponto A"))
-        x2 = float(input("Digite o x do ponto B"))
-        y2 = float(input("Digite o y do ponto B"))
-        x3 = float(input("Digite o x do ponto C"))
-        y3 = float(input("Digite o y do ponto C"))
+    while True:
+        try:
+            x1 = float(input("Digite o x do ponto A\n"))
+            y1 = float(input("Digite o y do ponto A\n"))
+            x2 = float(input("Digite o x do ponto B\n"))
+            y2 = float(input("Digite o y do ponto B\n"))
+            x3 = float(input("Digite o x do ponto C\n"))
+            y3 = float(input("Digite o y do ponto C\n"))
 
-        criacao_reta = Reta(x1,y1,x2,y2,x3,y3)
-        criacao_reta.mostrar_valores()
-        return criacao_reta
-    except ValueError:
-        print("Caractere inválido! Digite um número")
+            criacao_reta = Reta(x1,y1,x2,y2,x3,y3)
+            criacao_reta.mostrar_valores()
+            return criacao_reta
+    
+        except ValueError:
+            print("Caractere inválido! Digite um número")
+            continue
 
 def main():
     while True:
         try:
             entrada = int(input("CALCULADORA GEOMÉTRICA\nDigite ___ para:\n1. Calcular a DISTÂNCIA ENTRE DOIS PONTOS NA RETA\n2. Calcular o PONTO MÉDIO ENTRE DOIS PONTOS NA RETA\n3. Calcular os PONTOS COLINEARES\n4. Calcular a INCLINAÇÃO DA RETA\n0. Para ENCERRAR\n"))
-            if entrada =="1":
+            if entrada == 1:
                 reta_criada = entrada_2_valores()
                 reta_criada.distancia_dois_pontos()
-            elif entrada == "2":
+            elif entrada == 2:
                 reta_criada = entrada_2_valores()
                 reta_criada.ponto_medio()
-            elif entrada == "3":
+            elif entrada == 3:
                 reta_criada = entrada_3_valores()
                 reta_criada.pontos_colineares()
-            elif entrada == "4":
+            elif entrada == 4:
                 reta_criada = entrada_2_valores
                 reta_criada.inclinacao_reta()
+            elif entrada == 0:
+                print("Encerrando...")
+                break
+
             else:
                 print("Digite um número válido!")
                 continue
+
         except ValueError:
             print("Caractere inválido! Digite o que deseja fazer de acordo com o MENU\n")
 main()
