@@ -42,17 +42,29 @@ def entrada_2_valores():
     while True:
         try:
             x1 = float(input("Digite o x do ponto A\n"))
+        except ValueError:
+            print("Erro! Digite corretamente o que foi pedido.")
+            continue
+        try:
             y1 = float(input("Digite o y do ponto A\n"))
-            x2 = float(input("Digite o x do ponto B\n"))
+        except ValueError:
+            print("Erro! Digite corretamente o que foi pedido.")
+            continue
+        try:
+            x2 = float(input("/Digite o x do ponto B\n"))
+        except ValueError:
+            print("Erro! Digite corretamente o que foi pedido.")
+            continue
+        try:
             y2 = float(input("Digite o y do ponto B\n"))
-
-            criacao_reta = Reta(x1,y1,x2,y2)
-            criacao_reta.mostrar_valores()
-            return criacao_reta
         except ValueError:
             print("Erro! Digite corretamente o que foi pedido.")
             continue
 
+            criacao_reta = Reta(x1,y1,x2,y2)
+            criacao_reta.mostrar_valores()
+            return criacao_reta
+        
 def entrada_3_valores():
     while True:
         try:
